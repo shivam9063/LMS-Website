@@ -50,8 +50,8 @@ export const signUp = async (req, res) => {
         let token = await genToken(user._id)
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax", // Changed from "Strict" to "lax" for cross-port development
+            secure: true,
+            sameSite: "none", // Changed from "Strict" to "lax" for cross-port development
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
         console.log("SignUp: Token cookie set successfully for user:", user.email)
@@ -77,8 +77,8 @@ export const login = async (req, res) => {
         let token = await genToken(user._id)
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax", // Changed from "Strict" to "lax" for cross-port development
+            secure: true,
+            sameSite: "none", // Changed from "Strict" to "lax" for cross-port development
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
         console.log("Login: Token cookie set successfully for user:", user.email)
@@ -115,8 +115,8 @@ export const googleSignup = async (req, res) => {
         let token = await genToken(user._id)
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax", // Changed from "Strict" to "lax" for cross-port development
+            secure: true,
+            sameSite: "none", // Changed from "Strict" to "lax" for cross-port development
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
         console.log("GoogleSignup: Token cookie set successfully for user:", user.email)
